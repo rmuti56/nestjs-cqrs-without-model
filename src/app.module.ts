@@ -3,11 +3,17 @@ import { CqrsModule } from './cqrs/cqrs.module';
 import { ConfigModule } from './config/config.module';
 import { DatabaseModule } from './database/database.module';
 import { HeroModule } from './modules/hero/hero.module';
-import { ItemModule } from './modules/item/item.module';
+import { APP_PIPE } from '@nestjs/core';
+import { ValidationPipe } from './common/pipes/validation.pipe';
 
 @Module({
-  imports: [CqrsModule, ConfigModule, DatabaseModule, HeroModule, ItemModule],
+  imports: [CqrsModule, ConfigModule, DatabaseModule, HeroModule],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe,
+    },
+  ],
 })
 export class AppModule {}

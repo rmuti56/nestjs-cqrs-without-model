@@ -1,15 +1,11 @@
-import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { ExceptionFilter } from './common/filters/exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      errorHttpStatusCode: 422,
-    }),
-  );
+  app.useGlobalFilters(new ExceptionFilter())
   const options = new DocumentBuilder()
     .setTitle(`hero`)
     .setDescription(`example`)
