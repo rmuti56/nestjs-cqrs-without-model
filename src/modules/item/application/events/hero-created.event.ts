@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { ItemType } from "src/common/enums/item-type.enum";
 
 import { IEvent } from "@nestjs/cqrs";
-import { ItemRepository } from "../../domain/repositories/item.repository";
+import { ItemRepository } from "../../infrastructure/repositories/item.repository";
 
 export class HeroCreatedEvent implements IEvent {
     constructor(public readonly heroId: string){}

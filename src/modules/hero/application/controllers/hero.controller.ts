@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { ApiTags } from '@nestjs/swagger';
-import { Hero } from '../../domain/entities/hero.entity';
+import { HeroEntity } from '../../infrastructure/entities/hero.entity';
 
 import { CreateHeroDto } from '../../interface/dto/create-hero.dto';
 import { CreateHeroCommand } from '../commands/create-hero.command';
@@ -17,13 +17,13 @@ export class HeroController {
   ) {}
 
   @Post()
-  async createHero(@Body() createHeroDto: CreateHeroDto) : Promise<Hero> {
+  async createHero(@Body() createHeroDto: CreateHeroDto) : Promise<HeroEntity> {
     return await this.commandBus.execute(new CreateHeroCommand(createHeroDto));
   }
 
   //query
   @Get()
-  async getHeroById(@Param('id') id: string):Promise<Hero>{
+  async getHeroById(@Param('id') id: string):Promise<HeroEntity>{
     return await this.queryBus.execute(new GetHeroByIdQuery(id))
   }
 }
