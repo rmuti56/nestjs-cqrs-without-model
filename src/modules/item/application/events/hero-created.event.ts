@@ -1,8 +1,9 @@
 import { EventsHandler, IEventHandler } from "@nestjs/cqrs";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ItemType } from "src/common/enums/item-type.enum";
-import { ItemRepository } from "src/modules/item/infrastructure/repositories/item.repository";
+
 import { IEvent } from "@nestjs/cqrs";
+import { ItemRepository } from "../../domain/repositories/item.repository";
 
 export class HeroCreatedEvent implements IEvent {
     constructor(public readonly heroId: string){}

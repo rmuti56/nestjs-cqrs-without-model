@@ -5,7 +5,7 @@ import {
   ICommandHandler,
 } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
-import { HeroRepository } from 'src/modules/hero/infrastructure/repositories/hero.repository';
+import { HeroRepository } from 'src/modules/hero/domain/repositories/hero.repository';
 import { HeroCreatedEvent } from 'src/modules/item/application/events/hero-created.event';
 
 interface ICreateHeroCommand {
