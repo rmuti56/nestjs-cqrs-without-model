@@ -2,7 +2,8 @@ import { Base } from 'src/common/entities/base.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity({name: 'hero'})
-export class HeroEntity extends Base {
+export class Hero extends Base {
+ 
   @Column()
   name: string;
 

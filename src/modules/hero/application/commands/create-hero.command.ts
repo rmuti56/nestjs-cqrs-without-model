@@ -7,6 +7,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { HeroRepository } from 'src/modules/hero/domain/repositories/hero.repository';
 import { HeroCreatedEvent } from 'src/modules/item/application/events/hero-created.event';
+import { Hero } from '../../domain/entities/hero.entity';
 
 interface ICreateHeroCommand {
   name: string;
