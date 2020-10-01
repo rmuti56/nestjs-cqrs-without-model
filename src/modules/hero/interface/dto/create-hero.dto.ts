@@ -6,7 +6,7 @@ export class CreateHeroDto{
 
     @IsNumber()
     @IsOptional()
-    readonly attack?: number
+    readonly attack: number
 
     @IsNumber()
     readonly defence: number

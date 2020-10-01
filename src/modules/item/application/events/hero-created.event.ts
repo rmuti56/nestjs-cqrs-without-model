@@ -16,6 +16,7 @@ export class HeroCreatedEventHandler implements IEventHandler<HeroCreatedEvent>{
         private readonly itemRepository: ItemRepository
     ){}
     public async handle(event: HeroCreatedEvent){
+        console.log(event)
         await this.itemRepository.save({
             heroId: event.heroId,
             type: ItemType.ARMOR

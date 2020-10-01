@@ -18,6 +18,6 @@ export  class GetHeroByIdQueryHandler
 
   public async execute(query: GetHeroByIdQuery): Promise<HeroEntity | undefined> {
     const { id } = query;
-    return await this.heroRepository.findOne(id);
+    return await this.heroRepository.findById(id);
   }
 }
