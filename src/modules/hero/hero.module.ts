@@ -4,8 +4,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommandHandlers } from './application/commands';
 import { HeroController } from './application/controllers/hero.controller';
 import { QueryHandlers } from './application/queries';
-import { Factories } from './domain';
-import { HeroRepository } from './infrastructure/repositories/hero.repository';
+import { Factories } from './domain/models';
+import { HeroRepository } from './domain/repositories/hero.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([HeroRepository])],
